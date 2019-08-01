@@ -12,10 +12,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/echo-lu/mini-sliders.git"
+        "url": "git+https://github.com/DarkWSS/w-mod.git"
     },
+    "homepage": "https://github.com/DarkWSS/w-mod/blob/master/README.md",
     "dependencies": {
-        "animate": "^1.0.0",
+        "animate.css": "^3.7.2",
+        "font-awesome": "^4.7.0",
         "node-sass": "^4.12.0",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.11"

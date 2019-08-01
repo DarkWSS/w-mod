@@ -1,51 +1,93 @@
+/*
+ * 全屏遮罩层组件，父组件传入参数为overlayState(控制遮罩层显示状态)、enterAnime(遮罩层显示过渡动画)、leaveAnime(遮罩层隐藏过渡动画)
+ * 备注：传入的动画值为animate.css的相关类名，必须先加animate类名
+ */
 <template>
-  <div class="main">
-    <div class="overlay">
-      <slot
-        name="pop"
-        class="pop"
-      ></slot>
-    </div>
-    <slot
-      name="page"
-      class="page"
-    ></slot>
+  <div class="overlay_main">
+    <transition
+      :enter-active-class="enterAnime"
+      :leave-active-class="leaveAnime"
+    >
+      <div
+        class="overlay"
+        v-show="overlayState"
+      >
+        <div class="pop">
+          <slot></slot>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
+import 'animate.css'
 export default {
-
+  props: {
+    overlayState: false,
+    enterAnime: {
+      type: String,
+      default: 'animated slideInUp'
+    },
+    leaveAnime: {
+      type: String,
+      default: 'animated slideOutDown'
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.main {
+.overlay_main {
   width: 100%;
   height: 100%;
-  position: relative;
+  overflow: hidden;
   .overlay {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
     .pop {
+      width: fit-content;
+      height: fit-content;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
+      margin: auto;
     }
   }
-  .page {
-    width: 100%;
-    height: 100%;
-    position: absolute;
+}
+.roll-enter-active {
+  animation: roll-in 0.5s;
+}
+.roll-leave-active {
+  animation: roll-in 0.5s reverse;
+}
+@keyframes roll-in {
+  from {
+    top: 100%;
+  }
+  to {
     top: 0;
-    left: 0;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+  }
+}
+.fade-enter-active {
+  animation: roll-in 0.5s;
+}
+.fade-leave-active {
+  animation: roll-in 0.5s reverse;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 </style>
