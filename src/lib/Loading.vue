@@ -1,3 +1,6 @@
+/*
+* 加载中状态，使用svg图片实现动画效果
+*/
 <template>
   <div class="loading_main">
     <overlay :overlayState="overlayState">
@@ -22,6 +25,7 @@
           y2="17"
           style="fill: none; stroke:#ccc"
           stroke-width="3"
+          stroke-linecap="round"
         >
           <animateTransform
             attributeName="transform"
@@ -40,6 +44,7 @@
           y2="20"
           style="fill: none; stroke:#ccc"
           stroke-width="3"
+          stroke-linecap="round"
         >
           <animateTransform
             attributeName="transform"
@@ -55,7 +60,6 @@
     </overlay>
   </div>
 </template>
-
 <script>
 import Overlay from './Overlay'
 export default {
@@ -66,7 +70,7 @@ export default {
     overlayState: false
   }
 }
-</script>
 
+</script>
 <style lang="scss" scope>
 </style>
