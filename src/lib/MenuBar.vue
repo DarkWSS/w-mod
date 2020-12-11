@@ -8,16 +8,12 @@
 <template>
   <div class="menu_main">
     <div class="menu_area">
-      <div
-        class="menu_line"
-        v-for="(menuLine, index) in newMenuList"
-        :key="index"
-      >
-        <div
-          class="menu"
-          v-for="(menu, menuIndex) in menuLine"
-          :key="menuIndex"
-        >
+      <div class="menu_line"
+           v-for="(menuLine, index) in newMenuList"
+           :key="index">
+        <div class="menu"
+             v-for="(menu, menuIndex) in menuLine"
+             :key="menuIndex">
           <div class="icon">
             <img :src="menu.img">
           </div>
@@ -40,7 +36,7 @@ export default {
       default: 5
     }
   },
-  mounted() {
+  mounted () {
     let list = this.menuList
     let productData = [];
     let num = Math.ceil(list.length / this.num);
@@ -49,7 +45,7 @@ export default {
     }
     this.newMenuList = productData
   },
-  data() {
+  data () {
     return {
       newMenuList: []
     }
