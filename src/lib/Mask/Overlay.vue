@@ -4,28 +4,18 @@
 */
 <template>
   <div class="overlay_main">
-    <transition :enter-active-class="enterAnime" :leave-active-class="leaveAnime">
-      <div class="overlay" v-show="overlayState">
-        <div class="pop">
-          <slot></slot>
-        </div>
+    <div class="overlay"
+         v-show="overlayState">
+      <div class="pop">
+        <slot></slot>
       </div>
-    </transition>
+    </div>
   </div>
 </template>
 <script>
-import 'animate.css'
 export default {
   props: {
-    overlayState: false,
-    enterAnime: {
-      type: String,
-      default: 'animated slideInUp'
-    },
-    leaveAnime: {
-      type: String,
-      default: 'animated slideOutDown'
-    }
+    overlayState: false
   }
 }
 
@@ -93,5 +83,4 @@ export default {
     opacity: 1;
   }
 }
-
 </style>

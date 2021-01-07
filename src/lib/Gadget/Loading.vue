@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-import Overlay from './Overlay'
+import Overlay from './../Mask/Overlay'
 export default {
   components: {
     Overlay
