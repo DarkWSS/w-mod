@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-import CustomSelect from './../form/CustomSelect'
+import CustomSelect from './../Form/CustomSelect'
 export default {
   components: {
     'custom-select': CustomSelect
